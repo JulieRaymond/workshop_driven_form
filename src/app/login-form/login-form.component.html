@@ -1,0 +1,23 @@
+<form (ngSubmit)="myForm.valid && onSubmit()" #myForm="ngForm">
+    <fieldset>
+      <label for="email-user">📧Email</label>
+      <input id="email-user" name="email-user" type="email" [(ngModel)]="newUser.email" #email="ngModel" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$"/>
+      <div *ngIf="myForm.submitted && email.errors">
+        <span *ngIf="email.errors?.['required']">🔴Le champ email est requis</span>
+        <span *ngIf="email.errors?.['pattern']">🔴Le format de l'adresse email est invalide.</span>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <label for="password-user">🔑Password</label>
+      <input id="password-user" name="password-user" type="password" [(ngModel)]="newUser.password" #password="ngModel" required minlength="6" />
+      <div *ngIf="myForm.submitted && password.errors">
+        <span *ngIf="password.errors?.['required']">🔴Le champ password est requis</span>
+        <span *ngIf="password.errors?.['minlength']">🔴 Le champ password doit comporter au moins 6 caractères.</span>
+      </div>
+    </fieldset>
+    <div *ngIf="myForm.valid && myForm.submitted">
+        {{ successMessage }}
+    </div>
+    <button type="submit" (click)="successMessage = ''">Sauvegarder</button>
+  </form>
