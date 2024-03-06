@@ -1,15 +1,15 @@
 input {
-    border: 1px solid orange;
-  }
-  
-  input.ng-touched {
-    border: 1px solid blue;
-  }
-  
-  input.ng-valid {
-    border: 1px solid green;
-  }
-  
-  input.ng-invalid.ng-dirty {
-    border: 1px solid red;
-  }
+  border: 3px solid grey;
+}
+
+input.ng-touched {
+  border: 3px solid rgb(221, 163, 19);
+}
+
+input.ng-valid {
+  border: 3px solid green;
+}
+
+input.ng-invalid.ng-dirty {
+  border: 3px solid red;
+}
